@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Center - AutoLux</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <!-- Updated Header with Hamburger Menu -->
+     <br>
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo">AutoLux</div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link ">Inventory</a>
+                    <a href="financing.html" class="nav-link">Financing</a>
+                    <a href="service.html" class="nav-link">Service</a>
+                    <a href="about.html" class="nav-link">About</a>
+                </nav>
+            </div>
+            
+            <div class="header-right">
+                <div class="search-container">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search vehicles..." class="search-input">
+                </div>
+                <button class="icon-btn" title="Favorites">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn" title="User Profile">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                
+                <!-- Hamburger Menu Button -->
+                <button class="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-search">
+            <div class="search-container">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" placeholder="Search vehicles..." class="search-input">
+            </div>
+        </div>
+        
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link active">Inventory</a>
+            <a href="financing.html" class="mobile-nav-link">Financing</a>
+            <a href="service.html" class="mobile-nav-link">Service</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </nav>
+        
+        
+    </div>
+</header>
+
+<!-- Menu Overlay -->
+<div class="menu-overlay"></div>
+
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-title">Service Center</h1>
+                <p class="page-subtitle">Expert automotive service and maintenance</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="content-section">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">General Maintenance</h3>
+                    <p class="service-description">
+                        Oil changes, tire rotations, brake inspections, and routine maintenance to keep your vehicle running smoothly.
+                    </p>
+                    <ul class="service-features">
+                        <li>Oil & Filter Changes</li>
+                        <li>Tire Services</li>
+                        <li>Brake Inspections</li>
+                        <li>Battery Testing</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Engine Diagnostics</h3>
+                    <p class="service-description">
+                        Advanced diagnostic equipment to identify and resolve engine issues quickly and accurately.
+                    </p>
+                    <ul class="service-features">
+                        <li>Computer Diagnostics</li>
+                        <li>Engine Tune-ups</li>
+                        <li>Emission Testing</li>
+                        <li>Performance Analysis</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="6"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Brake Service</h3>
+                    <p class="service-description">
+                        Complete brake system service including pad replacement, rotor resurfacing, and brake fluid service.
+                    </p>
+                    <ul class="service-features">
+                        <li>Brake Pad Replacement</li>
+                        <li>Rotor Service</li>
+                        <li>Brake Fluid Exchange</li>
+                        <li>ABS System Service</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2">
+                            <path d="M12 2v6l3-3 3 3-3 3v6l-3-3-3 3V8l3-3-3-3z"></path>
+                            <path d="M12 2v6l3-3 3 3-3 3v6l-3-3-3 3V8l3-3-3-3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Transmission Service</h3>
+                    <p class="service-description">
+                        Transmission maintenance and repair services to ensure smooth shifting and optimal performance.
+                    </p>
+                    <ul class="service-features">
+                        <li>Transmission Fluid Service</li>
+                        <li>Filter Replacement</li>
+                        <li>Clutch Service</li>
+                        <li>Transmission Repair</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2">
+                            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">AC & Heating</h3>
+                    <p class="service-description">
+                        Climate control system service and repair to keep you comfortable in any weather.
+                    </p>
+                    <ul class="service-features">
+                        <li>AC System Service</li>
+                        <li>Refrigerant Recharge</li>
+                        <li>Heater Core Service</li>
+                        <li>Climate Control Repair</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Electrical Systems</h3>
+                    <p class="service-description">
+                        Complete electrical system diagnostics and repair including batteries, alternators, and starters.
+                    </p>
+                    <ul class="service-features">
+                        <li>Battery Testing & Replacement</li>
+                        <li>Alternator Service</li>
+                        <li>Starter Repair</li>
+                        <li>Electrical Diagnostics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service Hours & Contact -->
+            <div class="service-info">
+                <div class="info-card">
+                    <h3 class="info-title">Service Hours</h3>
+                    <div class="hours-list">
+                        <div class="hours-item">
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">7:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Saturday</span>
+                            <span class="time">8:00 AM - 4:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Sunday</span>
+                            <span class="time">Closed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3 class="info-title">Schedule Service</h3>
+                    <p class="info-description">
+                        Book your service appointment online or call us directly. We offer convenient scheduling and competitive pricing.
+                    </p>
+                    <div class="service-buttons">
+                        <button class="btn btn-primary">Schedule Online</button>
+                        <button class="btn btn-outline">Call (555) 123-4567</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="logo">AutoLux</div>
+                        <p class="footer-description">
+                            Your trusted partner in finding the perfect vehicle. Quality, transparency, and exceptional service since 2010.
+                        </p>
+                        <div class="footer-contact">
+                            <div class="contact-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                                <span>(555) 123-4567</span>
+                            </div>
+                            <div class="contact-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <span>info@autolux.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3 class="footer-title">Services</h3>
+                        <ul class="footer-list">
+                            <li><a href="buy-car.html" class="footer-link">Buy a Car</a></li>
+                            <li><a href="sell-car.html" class="footer-link">Sell Your Car</a></li>
+                            <li><a href="financing.html" class="footer-link">Financing</a></li>
+                            <li><a href="service.html" class="footer-link">Service Center</a></li>
+                        </ul>
+                    </div>
+
+                   
+                </div>
+                 <div class="footer-column">
+                        <h3 class="footer-title">Company</h3>
+                        <ul class="footer-list">
+                            <li><a href="about.html" class="footer-link">About Us</a></li>
+                            <li><a href="contact.html" class="footer-link">Contact</a></li>
+                            <li><a href="careers.html" class="footer-link">Careers</a></li>
+                            <li><a href="reviews.html" class="footer-link">Reviews</a></li>
+                        </ul>
+                    </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 AutoLux. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                    <a href="terms.html" class="footer-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

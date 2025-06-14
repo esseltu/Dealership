@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financing - AutoLux</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+   <!-- Updated Header with Hamburger Menu -->
+    <br>
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo">AutoLux</div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link ">Inventory</a>
+                    <a href="financing.html" class="nav-link">Financing</a>
+                    <a href="service.html" class="nav-link">Service</a>
+                    <a href="about.html" class="nav-link">About</a>
+                </nav>
+            </div>
+            
+            <div class="header-right">
+                <div class="search-container">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search vehicles..." class="search-input">
+                </div>
+                <button class="icon-btn" title="Favorites">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn" title="User Profile">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                
+                <!-- Hamburger Menu Button -->
+                <button class="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-search">
+            <div class="search-container">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" placeholder="Search vehicles..." class="search-input">
+            </div>
+        </div>
+        
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link active">Inventory</a>
+            <a href="financing.html" class="mobile-nav-link">Financing</a>
+            <a href="service.html" class="mobile-nav-link">Service</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </nav>
+        
+       
+    </div>
+</header>
+
+<!-- Menu Overlay -->
+<div class="menu-overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-title">Vehicle Financing</h1>
+                <p class="page-subtitle">Flexible financing options to get you behind the wheel</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financing Calculator -->
+    <section class="content-section">
+        <div class="container">
+            <div class="calculator-section">
+                <div class="calculator-card">
+                    <h2 class="calculator-title">Loan Calculator</h2>
+                    <p class="calculator-subtitle">Calculate your monthly payments</p>
+                    
+                    <div class="calculator-form">
+                        <div class="form-group">
+                            <label for="vehiclePrice" class="form-label">Vehicle Price</label>
+                            <div class="input-wrapper">
+                                <span class="input-prefix">$</span>
+                                <input type="number" id="vehiclePrice" class="form-input" placeholder="35,000" value="35000">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="downPayment" class="form-label">Down Payment</label>
+                            <div class="input-wrapper">
+                                <span class="input-prefix">$</span>
+                                <input type="number" id="downPayment" class="form-input" placeholder="5,000" value="5000">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="loanTerm" class="form-label">Loan Term</label>
+                            <select id="loanTerm" class="form-select">
+                                <option value="36">36 months</option>
+                                <option value="48">48 months</option>
+                                <option value="60" selected>60 months</option>
+                                <option value="72">72 months</option>
+                                <option value="84">84 months</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interestRate" class="form-label">Interest Rate (APR)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="interestRate" class="form-input" placeholder="4.5" value="4.5" step="0.1">
+                                <span class="input-suffix">%</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary calculate-btn" onclick="calculatePayment()">Calculate Payment</button>
+                    </div>
+                    
+                    <div class="calculation-result" id="calculationResult">
+                        <div class="result-item">
+                            <span class="result-label">Monthly Payment</span>
+                            <span class="result-value" id="monthlyPayment">$558</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Total Interest</span>
+                            <span class="result-value" id="totalInterest">$3,480</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Total Amount</span>
+                            <span class="result-value" id="totalAmount">$33,480</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financing Options -->
+            <div class="financing-options">
+                <h2 class="section-title">Financing Options</h2>
+                <div class="options-grid">
+                    <div class="option-card">
+                        <div class="option-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2">
+                                <rect x="1" y="3" width="15" height="13"></rect>
+                                <path d="m16 8 2-2 2 2"></path>
+                                <path d="M11 6h5a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="option-title">Traditional Auto Loan</h3>
+                        <p class="option-description">
+                            Competitive rates starting at 3.9% APR with flexible terms from 36 to 84 months.
+                        </p>
+                        <ul class="option-features">
+                            <li>Fixed interest rates</li>
+                            <li>No prepayment penalties</li>
+                            <li>Quick approval process</li>
+                        </ul>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="option-title">Lease Options</h3>
+                        <p class="option-description">
+                            Lower monthly payments with the flexibility to upgrade to newer models.
+                        </p>
+                        <ul class="option-features">
+                            <li>Lower monthly payments</li>
+                            <li>Warranty coverage</li>
+                            <li>Upgrade flexibility</li>
+                        </ul>
+                    </div>
+
+                    <div class="option-card">
+                        <div class="option-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0A84FF" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="m19 8 2 2-2 2"></path>
+                                <path d="m17 10 2 2-2 2"></path>
+                            </svg>
+                        </div>
+                        <h3 class="option-title">Special Programs</h3>
+                        <p class="option-description">
+                            First-time buyer programs, military discounts, and graduate incentives available.
+                        </p>
+                        <ul class="option-features">
+                            <li>First-time buyer assistance</li>
+                            <li>Military & veteran discounts</li>
+                            <li>College graduate programs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Process -->
+            <div class="process-section">
+                <h2 class="section-title">Simple Application Process</h2>
+                <div class="process-steps">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Apply Online</h3>
+                            <p class="step-description">Complete our secure online application in just 5 minutes.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Get Pre-Approved</h3>
+                            <p class="step-description">Receive instant pre-approval with competitive rates.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Choose Your Vehicle</h3>
+                            <p class="step-description">Browse our inventory with confidence knowing your budget.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Drive Away</h3>
+                            <p class="step-description">Complete the paperwork and drive away in your new car.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <button class="btn btn-primary btn-large">Apply for Financing</button>
+                    <button class="btn btn-outline btn-large">Get Pre-Approved</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="logo">AutoLux</div>
+                        <p class="footer-description">
+                            Your trusted partner in finding the perfect vehicle. Quality, transparency, and exceptional service since 2010.
+                        </p>
+                        <div class="footer-contact">
+                            <div class="contact-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                                <span>(555) 123-4567</span>
+                            </div>
+                            <div class="contact-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <span>info@autolux.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3 class="footer-title">Services</h3>
+                        <ul class="footer-list">
+                            <li><a href="buy-car.html" class="footer-link">Buy a Car</a></li>
+                            <li><a href="sell-car.html" class="footer-link">Sell Your Car</a></li>
+                            <li><a href="financing.html" class="footer-link">Financing</a></li>
+                            <li><a href="service.html" class="footer-link">Service Center</a></li>
+                        </ul>
+                    </div>
+
+                    
+                </div>
+                <div class="footer-column">
+                        <h3 class="footer-title">Company</h3>
+                        <ul class="footer-list">
+                            <li><a href="about.html" class="footer-link">About Us</a></li>
+                            <li><a href="contact.html" class="footer-link">Contact</a></li>
+                            <li><a href="careers.html" class="footer-link">Careers</a></li>
+                            <li><a href="reviews.html" class="footer-link">Reviews</a></li>
+                        </ul>
+                    </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 AutoLux. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                    <a href="terms.html" class="footer-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function calculatePayment() {
+            const vehiclePrice = parseFloat(document.getElementById('vehiclePrice').value) || 0;
+            const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+            const loanTerm = parseInt(document.getElementById('loanTerm').value) || 60;
+            const interestRate = parseFloat(document.getElementById('interestRate').value) || 0;
+            
+            const loanAmount = vehiclePrice - downPayment;
+            const monthlyRate = interestRate / 100 / 12;
+            
+            let monthlyPayment = 0;
+            if (monthlyRate > 0) {
+                monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, loanTerm)) / (Math.pow(1 + monthlyRate, loanTerm) - 1);
+            } else {
+                monthlyPayment = loanAmount / loanTerm;
+            }
+            
+            const totalAmount = monthlyPayment * loanTerm;
+            const totalInterest = totalAmount - loanAmount;
+            
+            document.getElementById('monthlyPayment').textContent = '$' + monthlyPayment.toFixed(0);
+            document.getElementById('totalInterest').textContent = '$' + totalInterest.toFixed(0);
+            document.getElementById('totalAmount').textContent = '$' + totalAmount.toFixed(0);
+        }
+        
+        // Calculate on page load
+        calculatePayment();
+        
+        // Recalculate when inputs change
+        document.getElementById('vehiclePrice').addEventListener('input', calculatePayment);
+        document.getElementById('downPayment').addEventListener('input', calculatePayment);
+        document.getElementById('loanTerm').addEventListener('change', calculatePayment);
+        document.getElementById('interestRate').addEventListener('input', calculatePayment);
+    </script>
+</body>
+</html>

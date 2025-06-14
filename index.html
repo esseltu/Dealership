@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoLux - Premium Car Dealership</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Updated Header with Hamburger Menu -->
+     <br>
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo">AutoLux</div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Inventory</a>
+                    <a href="financing.html" class="nav-link">Financing</a>
+                    <a href="service.html" class="nav-link">Service</a>
+                    <a href="about.html" class="nav-link">About</a>
+                </nav>
+            </div>
+            
+            <div class="header-right">
+                <div class="search-container">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search vehicles..." class="search-input">
+                </div>
+                <button class="icon-btn" title="Favorites">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn" title="User Profile">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                
+                <!-- Hamburger Menu Button -->
+                <button class="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-search">
+            <div class="search-container">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" placeholder="Search vehicles..." class="search-input">
+            </div>
+        </div>
+        
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link active">Inventory</a>
+            <a href="financing.html" class="mobile-nav-link">Financing</a>
+            <a href="service.html" class="mobile-nav-link">Service</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </nav>
+              
+    </div>
+</header>
+
+<!-- Menu Overlay -->
+<div class="menu-overlay"></div>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="hero1.webp" alt="Hero car" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Find Your Perfect Drive</h1>
+                <p class="hero-subtitle">
+                    Discover premium vehicles with transparent pricing and exceptional service. Your dream car awaits.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToInventory()">Browse Inventory</button>
+                    <button class="btn btn-secondary" onclick="window.location.href='test-drive.html'">Schedule Test Drive</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Vehicles -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Vehicles</h2>
+                <p class="section-subtitle">
+                    Hand-picked premium vehicles that represent the best of our inventory
+                </p>
+            </div>
+
+            <div class="featured-grid">
+                <div class="vehicle-card featured-card">
+                    <div class="card-image-container">
+                        <img src="Tesla model S.webp" alt="Tesla Model S" class="card-image">
+                        <div class="featured-badge">Featured</div>
+                        <button class="favorite-btn" title="Add to Favorites">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-info">
+                                <h3 class="card-title">Tesla Model S</h3>
+                                <p class="card-details">2024 • 0 miles</p>
+                            </div>
+                            <div class="card-price">$89,990</div>
+                        </div>
+                        
+                        <div class="card-specs">
+                            <span>Electric</span>
+                            <span>Automatic</span>
+                            <div class="rating">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#34C759" stroke="#34C759" stroke-width="2">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                                </svg>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-actions">
+                            <button class="btn btn-primary flex-1" onclick="window.location.href='details.html?id=tesla-model-s'">View Details</button>
+                            <button class="btn btn-outline icon-only" title="Contact Dealer" onclick="window.location.href='contact.html'">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vehicle-card featured-card">
+                    <div class="card-image-container">
+                        <img src="Mercedes-Benz C-Class.webp" alt="Mercedes-Benz C-Class" class="card-image">
+                        <div class="featured-badge">Featured</div>
+                        <button class="favorite-btn" title="Add to Favorites">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-info">
+                                <h3 class="card-title">Mercedes C-Class</h3>
+                                <p class="card-details">2024 • 5,100 miles</p>
+                            </div>
+                            <div class="card-price">$48,990</div>
+                        </div>
+                        
+                        <div class="card-specs">
+                            <span>Gasoline</span>
+                            <span>Automatic</span>
+                            <div class="rating">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#34C759" stroke="#34C759" stroke-width="2">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                                </svg>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-actions">
+                            <button class="btn btn-primary flex-1" onclick="window.location.href='details.html?id=mercedes-c-class'">View Details</button>
+                            <button class="btn btn-outline icon-only" title="Contact Dealer" onclick="window.location.href='contact.html'">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicle Inventory -->
+    <section class="inventory-section" id="inventory">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Inventory</h2>
+                <p class="section-subtitle">
+                    Browse our complete selection of quality pre-owned and new vehicles
+                </p>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-controls">
+                <div class="category-filters">
+                    <button class="filter-btn active" data-category="all">All Vehicles</button>
+                    <button class="filter-btn" data-category="luxury">Luxury</button>
+                    <button class="filter-btn" data-category="suv">SUV</button>
+                    <button class="filter-btn" data-category="sedan">Sedan</button>
+                </div>
+                
+                <button class="btn btn-outline" onclick="toggleAdvancedFilters()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"></polygon>
+                    </svg>
+                    More Filters
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6,9 12,15 18,9"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Vehicle Grid -->
+            <div class="vehicle-grid" id="vehicleGrid">
+                <!-- Vehicles will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="logo">AutoLux</div>
+                        <p class="footer-description">
+                            Your trusted partner in finding the perfect vehicle. Quality, transparency, and exceptional service since 2010.
+                        </p>
+                        <div class="footer-contact">
+                            <div class="contact-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                                <span>(555) 123-4567</span>
+                            </div>
+                            <div class="contact-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <span>info@autolux.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3 class="footer-title">Services</h3>
+                        <ul class="footer-list">
+                            <li><a href="index.html" class="footer-link">Buy a Car</a></li>
+                            <li><a href="sell-car.html" class="footer-link">Sell Your Car</a></li>
+                            <li><a href="financing.html" class="footer-link">Financing</a></li>
+                            <li><a href="service.html" class="footer-link">Service Center</a></li>
+                        </ul>
+                    </div>                    
+                </div>
+                <div class="footer-column">
+                        <h3 class="footer-title">Company</h3>
+                        <ul class="footer-list">
+                            <li><a href="about.html" class="footer-link">About Us</a></li>
+                            <li><a href="contact.html" class="footer-link">Contact</a></li>
+                            <li><a href="careers.html" class="footer-link">Careers</a></li>
+                            <li><a href="reviews.html" class="footer-link">Reviews</a></li>
+                        </ul>
+                    </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 AutoLux. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                    <a href="terms.html" class="footer-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="mobile-menu.js"></script>
+    
+</body>
+</html>

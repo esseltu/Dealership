@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule a Test Drive</title>
+    <link rel="stylesheet" href="test-drive.css">
+    <link rel="stylesheet" href="responsive-styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Updated Header with Hamburger Menu -->
+     <br>
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo">AutoLux</div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link ">Inventory</a>
+                    <a href="financing.html" class="nav-link">Financing</a>
+                    <a href="service.html" class="nav-link">Service</a>
+                    <a href="about.html" class="nav-link">About</a>
+                </nav>
+            </div>
+            
+            <div class="header-right">
+                <div class="search-container">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search vehicles..." class="search-input">
+                </div>
+                <button class="icon-btn" title="Favorites">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn" title="User Profile">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                
+                <!-- Hamburger Menu Button -->
+                <button class="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-search">
+            <div class="search-container">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" placeholder="Search vehicles..." class="search-input">
+            </div>
+        </div>
+        
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link active">Inventory</a>
+            <a href="financing.html" class="mobile-nav-link">Financing</a>
+            <a href="service.html" class="mobile-nav-link">Service</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </nav>
+        
+        
+    </div>
+</header>
+
+<!-- Menu Overlay -->
+<div class="menu-overlay"></div>
+
+    <div class="container">
+        <h1>Schedule a Test Drive</h1>
+        <div id="testDriveVehicle">
+            <!-- Vehicle information will be dynamically inserted here -->
+        </div>
+        <form id="testDriveForm">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" class="form-control" id="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" class="form-control" id="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" class="form-control" id="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="preferredDate">Preferred Date:</label>
+                <input type="date" class="form-control" id="preferredDate" required>
+            </div>
+            <div class="form-group">
+                <label for="preferredTime">Preferred Time:</label>
+                <input type="time" class="form-control" id="preferredTime" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Preferred Location:</label>
+                <select class="form-control" id="location" required>
+                    <option value="Dealership A">Dealership A</option>
+                    <option value="Dealership B">Dealership B</option>
+                    <option value="Dealership C">Dealership C</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="notes">Additional Notes:</label>
+                <textarea class="form-control" id="notes" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Schedule Test Drive</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get vehicle ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const vehicleId = urlParams.get('vehicle');
+            
+            // Get vehicle data from localStorage
+            const vehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
+            const vehicle = vehicles.find(v => v.id === vehicleId);
+            
+            if (vehicle) {
+                // Populate vehicle info
+                const vehicleInfo = document.getElementById('testDriveVehicle');
+                vehicleInfo.innerHTML = `
+                    <div class="vehicle-card">
+                        <div class="card-image-container">
+                            <img src="${vehicle.image}" alt="${vehicle.name}" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="card-info">
+                                    <h3 class="card-title">${vehicle.name}</h3>
+                                    <p class="card-details">${vehicle.year} • ${vehicle.mileage.toLocaleString()} miles</p>
+                                </div>
+                                <div class="card-price">$${vehicle.price.toLocaleString()}</div>
+                            </div>
+                            <div class="card-specs">
+                                <span>${vehicle.fuelType}</span>
+                                <span>${vehicle.transmission}</span>
+                                <div class="rating">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#34C759" stroke="#34C759">
+                                        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                                    </svg>
+                                    <span>${vehicle.rating}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Set min date to today
+                const today = new Date().toISOString().split('T')[0];
+                document.getElementById('preferredDate').min = today;
+                
+                // Load saved user data if available
+                const userData = JSON.parse(localStorage.getItem('userData')) || {};
+                if (userData) {
+                    document.getElementById('firstName').value = userData.firstName || '';
+                    document.getElementById('lastName').value = userData.lastName || '';
+                    document.getElementById('email').value = userData.email || '';
+                    document.getElementById('phone').value = userData.phone || '';
+                }
+                
+                // Form submission
+                document.getElementById('testDriveForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = {
+                        firstName: document.getElementById('firstName').value,
+                        lastName: document.getElementById('lastName').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        preferredDate: document.getElementById('preferredDate').value,
+                        preferredTime: document.getElementById('preferredTime').value,
+                        location: document.getElementById('location').value,
+                        notes: document.getElementById('notes').value,
+                        vehicleId: vehicle.id,
+                        vehicleName: vehicle.name,
+                        dateSubmitted: new Date().toISOString()
+                    };
+                    
+                    // Save user data for future use
+                    localStorage.setItem('userData', JSON.stringify({
+                        firstName: formData.firstName,
+                        lastName: formData.lastName,
+                        email: formData.email,
+                        phone: formData.phone
+                    }));
+                    
+                    // Save test drive appointment
+                    const appointments = JSON.parse(localStorage.getItem('testDriveAppointments')) || [];
+                    appointments.push(formData);
+                    localStorage.setItem('testDriveAppointments', JSON.stringify(appointments));
+                    
+                    // Show confirmation
+                    alert(`Thank you, ${formData.firstName}! Your test drive for the ${vehicle.name} has been scheduled for ${formData.preferredDate} at ${formData.preferredTime}. We'll contact you shortly to confirm.`);
+                    
+                    // Redirect to thank you page or home
+                    window.location.href = 'index.html';
+                });
+            } else {
+                document.getElementById('testDriveVehicle').innerHTML = `
+                    <div class="error-message">
+                        <h2>Vehicle Not Found</h2>
+                        <p>No vehicle was selected for the test drive.</p>
+                        <a href="index.html" class="btn btn-primary">Browse Inventory</a>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

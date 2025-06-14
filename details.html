@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Details</title>
+    <link rel="stylesheet" href="vehicle-details.css">
+    <link rel="stylesheet" href="responsive-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body>
+    <!-- Updated Header with Hamburger Menu -->
+     <br>
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo">AutoLux</div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link ">Inventory</a>
+                    <a href="financing.html" class="nav-link">Financing</a>
+                    <a href="service.html" class="nav-link">Service</a>
+                    <a href="about.html" class="nav-link">About</a>
+                </nav>
+            </div>
+            
+            <div class="header-right">
+                <div class="search-container">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search vehicles..." class="search-input">
+                </div>
+                <button class="icon-btn" title="Favorites">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn" title="User Profile">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                
+                <!-- Hamburger Menu Button -->
+                <button class="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-search">
+            <div class="search-container">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" placeholder="Search vehicles..." class="search-input">
+            </div>
+        </div>
+        
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link active">Inventory</a>
+            <a href="financing.html" class="mobile-nav-link">Financing</a>
+            <a href="service.html" class="mobile-nav-link">Service</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </nav>
+        
+       
+    </div>
+</header>
+
+<!-- Menu Overlay -->
+<div class="menu-overlay"></div>
+
+    <div class="container">
+        <h1>Vehicle Details</h1>
+        <section id="vehicleDetails" class="vehicle-details">
+            <!-- Vehicle details will be dynamically inserted here -->
+        </section>
+
+        <h2>Specifications</h2>
+        <section id="vehicleSpecs">
+            <!-- Vehicle specifications will be dynamically inserted here -->
+        </section>
+
+        <h2>Similar Vehicles</h2>
+        <section id="similarVehicles">
+            <!-- Similar vehicles will be dynamically inserted here -->
+        </section>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get vehicle ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const vehicleId = urlParams.get('id');
+        
+        // Get vehicle data from localStorage
+        const vehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
+        const vehicle = vehicles.find(v => v.id === vehicleId);
+        
+        if (vehicle) {
+            // Populate vehicle details
+            const detailsContainer = document.getElementById('vehicleDetails');
+            detailsContainer.innerHTML = `
+                <div class="vehicle-gallery">
+                    <div class="main-image">
+                        <img src="${vehicle.image}" alt="${vehicle.name}" class="vehicle-image">
+                    </div>
+                    <div class="thumbnail-container">
+                        ${vehicle.images.map(img => `
+                            <div class="thumbnail">
+                                <img src="${img}" alt="${vehicle.name}" class="thumbnail-image">
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                <div class="vehicle-info">
+                    <div class="vehicle-header">
+                        <h1 class="vehicle-title">${vehicle.name}</h1>
+                        <div class="vehicle-price">$${vehicle.price.toLocaleString()}</div>
+                    </div>
+                    <div class="vehicle-meta">
+                        <span>${vehicle.year}</span>
+                        <span>•</span>
+                        <span>${vehicle.mileage.toLocaleString()} miles</span>
+                        <span>•</span>
+                        <span>${vehicle.location}</span>
+                    </div>
+                    <div class="vehicle-description">
+                        <p>${vehicle.description}</p>
+                    </div>
+                    <div class="vehicle-highlights">
+                        <h3>Key Features</h3>
+                        <ul>
+                            ${vehicle.highlights.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="vehicle-actions">
+                        <button class="btn btn-primary" onclick="window.location.href='test-drive.html?vehicle=${vehicle.id}'">Schedule Test Drive</button>
+                        <button class="btn btn-outline" onclick="window.location.href='contact.html'">Contact Dealer</button>
+                    </div>
+                </div>
+            `;
+            
+            // Populate specs
+            const specsContainer = document.getElementById('vehicleSpecs');
+            specsContainer.innerHTML = `
+                <div class="specs-group">
+                    <h3>Engine & Performance</h3>
+                    <div class="specs-list">
+                        ${Object.entries(vehicle.specs.engine).map(([key, value]) => `
+                            <div class="spec-item">
+                                <span class="spec-label">${key}</span>
+                                <span class="spec-value">${value}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                <div class="specs-group">
+                    <h3>Dimensions</h3>
+                    <div class="specs-list">
+                        ${Object.entries(vehicle.specs.dimensions).map(([key, value]) => `
+                            <div class="spec-item">
+                                <span class="spec-label">${key}</span>
+                                <span class="spec-value">${value}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                <div class="specs-group">
+                    <h3>Comfort & Convenience</h3>
+                    <div class="specs-list">
+                        ${vehicle.specs.features.map(feature => `
+                            <div class="spec-item">
+                                <span class="spec-label">${feature}</span>
+                                <span class="spec-value"><svg width="16" height="16" viewBox="0 0 24 24" fill="#34C759" stroke="#34C759"><polyline points="20,6 9,17 4,12"></polyline></svg></span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            // Populate similar vehicles (filter by category)
+            const similarContainer = document.getElementById('similarVehicles');
+            const similarVehicles = vehicles
+                .filter(v => v.category === vehicle.category && v.id !== vehicle.id)
+                .slice(0, 3);
+            
+            if (similarVehicles.length > 0) {
+                similarContainer.innerHTML = similarVehicles.map(v => `
+                    <div class="vehicle-card" data-id="${v.id}">
+                        <div class="card-image-container">
+                            <img src="${v.image}" alt="${v.name}" class="card-image">
+                            <button class="favorite-btn" title="Add to Favorites">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="card-info">
+                                    <h3 class="card-title">${v.name}</h3>
+                                    <p class="card-details">${v.year} • ${v.mileage.toLocaleString()} miles</p>
+                                </div>
+                                <div class="card-price">$${v.price.toLocaleString()}</div>
+                            </div>
+                            <div class="card-specs">
+                                <span>${v.fuelType}</span>
+                                <span>${v.transmission}</span>
+                                <div class="rating">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#34C759" stroke="#34C759">
+                                        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                                    </svg>
+                                    <span>${v.rating}</span>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <button class="btn btn-primary flex-1" onclick="window.location.href='details.html?id=${v.id}'">View Details</button>
+                                <button class="btn btn-outline icon-only" onclick="window.location.href='contact.html'">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                similarContainer.innerHTML = '<p class="no-results">No similar vehicles found.</p>';
+            }
+        } else {
+            document.getElementById('vehicleDetails').innerHTML = `
+                <div class="error-message">
+                    <h2>Vehicle Not Found</h2>
+                    <p>The vehicle you're looking for could not be found.</p>
+                    <a href="index.html" class="btn btn-primary">Browse Inventory</a>
+                </div>
+            `;
+            document.getElementById('similarVehicles').innerHTML = '';
+        }
+    });
+</script>
+</body>
+</html>
